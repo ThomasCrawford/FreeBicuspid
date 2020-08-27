@@ -61,22 +61,24 @@ def nextStep(mani,info,minRadius):
 
 #format: [[z1,r1],[z2,r2],...]
 def publish(toBePublished, fileName):
-	file = open('{}.txt'.format(fileName),'a')
+	file = open('Generated/{}.txt'.format(fileName),'a')
 	for ball in toBePublished:
 		# print(ball)
 	    file.write(str(ball[0].real) +','+str(ball[0].imag)+','+str(ball[1])+'\n')
 	file.close()
 
 def main(args):
+	print(args)
 	start_time = time.time()
-	t,a,fileName,gDepth,minRadius = args
+	t,a,fileName,gDepth,minRadius,maxCount = args
 	manifold = Manifold(t,a)
-
 	horoCounter = 0
 	stage = [[0.,0.5,'G']] 
 
 
-	open('{}.txt'.format(fileName),'w').close()
+	f = open('Generated/{}.txt'.format(fileName),'w')
+	f.write('{t},{a}\n'.format(t=t,a=a))
+	f.close()
 
 	for i in range(gDepth):
 		newStage = []
@@ -103,7 +105,6 @@ def main(args):
 	print('Number of Horoballs:' + str(horoCounter))
 	publish(stage,fileName)
 	print ("--- %s seconds ---" % (time.time() - start_time))
-	quit()
 
 
 
