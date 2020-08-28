@@ -80,29 +80,29 @@ def main(args):
 
 	for i in range(gDepth):
 		newStage = []
-		#to optimize for multi-core processors
-		if len(stage)>200:
-			pool = mp.Pool(mp.cpu_count())
-			zipped = zip([manifold]*len(stage),stage,[minRadius]*len(stage))
-			results = pool.starmap(nextStep, zipped)
-			for x in results:
-				for y in x:
-					newStage.append(y)
-			pool.close()
-			print ('\t\t level %s: %s new horoballs, in %s seconds total ---' %(i +1, len(newStage), time.time() - start_time)) 
-		elif len(stage)>0:
+		# #to optimize for multi-core processors
+		# if len(stage)>200:
+		# 	pool = mp.Pool(mp.cpu_count())
+		# 	zipped = zip([manifold]*len(stage),stage,[minRadius]*len(stage))
+		# 	results = pool.starmap(nextStep, zipped)
+		# 	for x in results:
+		# 		for y in x:
+		# 			newStage.append(y)
+		# 	pool.close()
+		# 	print ('\t\t level %s: %s new horoballs, in %s seconds total ---' %(i +1, len(newStage), time.time() - start_time)) 
+		if len(stage)>0:
 			for ball in stage:
 				x = nextStep(manifold,ball,minRadius)
 				for y in x:
 					newStage.append(y)
-			print ('\t\t level %s: %s new horoballs, in %s seconds total ---' %(i +1, len(newStage), time.time() - start_time)) 
+			# print ('\t\t level %s: %s new horoballs, in %s seconds total ---' %(i +1, len(newStage), time.time() - start_time)) 
 		publish(stage,fileName)
 		horoCounter = horoCounter + len(stage)
 		stage = newStage
 		
-	print('\t Number of Horoballs:' + str(horoCounter))
+	# print('\t Number of Horoballs:' + str(horoCounter))
 	publish(stage,fileName)
-	print ("\t --- %s seconds ---" % (time.time() - start_time))
+	# print ("\t --- %s seconds ---" % (time.time() - start_time))
 
 
 

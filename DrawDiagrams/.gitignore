@@ -1,6 +1,7 @@
 *.txt
 *.png
 *.pyc
+!known.txt
 test.py
 __pycache__/parse.cpython-38.pyc
 /Generated

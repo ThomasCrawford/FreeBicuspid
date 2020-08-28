@@ -22,6 +22,8 @@ def name_parser():
 	parser = argparse.ArgumentParser(description="What manifold to draw")
 	parser.add_argument('fileName', type=str,\
 						help="fileName")
+	parser.add_argument('--title', type=str,default= 'MyManifold',\
+						help="image title")
 	return parser
 
 
@@ -36,5 +38,5 @@ def getargs():
 def getname():
 	parser = name_parser()
 	args = vars(parser.parse_args())
-	fileName = args['fileName']
+	fileName = [args['fileName'],args['title']]
 	return(fileName)
