@@ -15,4 +15,4 @@ Each of the images in Pictures is characterized by a sequence "pointing" right a
 
 # TODO:
 Clean up DrawDiagrams to make it user friendly
-Include detailed descritions here for both geometers and non-geometerspython
+Include detailed descritions here for both geometers and non-geometers
