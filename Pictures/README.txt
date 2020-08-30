@@ -8,4 +8,6 @@ This collection is a work in progress, TODO:
 
 
 Existing files:
-Version2_64.gif has 600 images for t between 0 and 60.  The title is the angle (t) value
+Full.gif has 600 images for t between 0 and 60.  The title is the angle (t) value
+.4.png is the "1,21" t = 0.438697559036, a =1.97984522727 solution
+.4.png is an unnecessarily high definition version of the same
