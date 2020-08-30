@@ -1,3 +1,5 @@
+##Identical to generateList.py except without multithreading.  generateList should be faster
+
 import os, sys, glob, time
 import multiprocessing as mp
 from cmath import *
@@ -90,7 +92,7 @@ def main(args):
 		# 			newStage.append(y)
 		# 	pool.close()
 		# 	print ('\t\t level %s: %s new horoballs, in %s seconds total ---' %(i +1, len(newStage), time.time() - start_time)) 
-		if len(stage)>0:
+		if len(stage)>0 and horoCounter<maxCount:
 			for ball in stage:
 				x = nextStep(manifold,ball,minRadius)
 				for y in x:

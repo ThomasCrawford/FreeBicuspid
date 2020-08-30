@@ -13,6 +13,7 @@ import parse
 
 
 def main(args):
+	dpi = 400
 	fileName, title = args
 	start_time = time.time()
 	data = []
@@ -54,7 +55,8 @@ def main(args):
 	ax.set_aspect('equal', 'box')
 	plt.title(title)
 	plt.tight_layout()
-	plt.savefig('Generated/{}.png'.format(fileName),dpi = 400)
+	plt.savefig('Generated/{}.png'.format(fileName),dpi = dpi)
+	plt.close(fig)
 
 if __name__ == '__main__':
 	args = parse.getname()

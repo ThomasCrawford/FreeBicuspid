@@ -81,7 +81,7 @@ def main(args):
 	for i in range(gDepth):
 		newStage = []
 		#to optimize for multi-core processors
-		if len(stage)>200:
+		if len(stage)>200 and horoCounter < maxCount:
 			pool = mp.Pool(mp.cpu_count())
 			zipped = zip([manifold]*len(stage),stage,[minRadius]*len(stage))
 			results = pool.starmap(nextStep, zipped)
@@ -90,7 +90,7 @@ def main(args):
 					newStage.append(y)
 			pool.close()
 			print ('\t\t level %s: %s new horoballs, in %s seconds total ---' %(i +1, len(newStage), time.time() - start_time)) 
-		elif len(stage)>0:
+		elif len(stage)>0 and horoCounter < maxCount:
 			for ball in stage:
 				x = nextStep(manifold,ball,minRadius)
 				for y in x:
